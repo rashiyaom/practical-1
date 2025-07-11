@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Night Vibes</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(160deg, #0f0f0f, #1a1a1a);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4vh 2rem;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: #e1baff;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 1s ease;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #cfcfcf;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    .link-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-width: 420px;
+      width: 100%;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 1s ease;
+    }
+
+    .link-box a {
+      display: block;
+      padding: 1rem;
+      background-color: #232323;
+      color: #ffffff;
+      border: 1px solid #3f3f3f;
+      border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+    }
+
+    .link-box a:hover {
+      background-color: #3a3a3a;
+      transform: scale(1.03);
+      box-shadow: 0 0 10px #b38aff33;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    .visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* Rain container and drop style */
+    .rain-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 100;
+    }
+
+    .drop {
+      position: absolute;
+      width: 2px;
+      height: 12px;
+      background: #91c4ff;
+      animation: fall linear 1s forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-20px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="title">Night Vibes 🌙</h1>
+  <p id="subtitle">Relax, explore, and drift into a peaceful digital night. These links are curated for calm and comfort.</p>
+
+  <div class="link-box" id="linkBox">
+      <a href="https://xhaccess.com/search/xhemster+porno?page=6">Link1</a><br>
+   <a href="https://okxxx1.com/sites/brazzers/134/">Link 2</a><br>
+   <a href="https://www.pornhub.com/categories">Link 3</a><br>
+   <a href="https://www.redtube.com/">Link4</a><br>
+   <a href="https://www.sexvid.pro/s/xxx+sex+video+com/">Link 5</a>
+</body>
+  </div>
+
+  <div class="rain-container" id="rainContainer"></div>
+
+  <footer>
+    &copy; 2025 Night Vibes | Designed for tranquility
+  </footer>
+
+  <script>
+    // Initial fade-in
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => document.getElementById('title').classList.add('visible'), 300);
+      setTimeout(() => document.getElementById('subtitle').classList.add('visible'), 800);
+      setTimeout(() => document.getElementById('linkBox').classList.add('visible'), 1200);
+    });
+
+    // Rain animation on title click
+    document.getElementById('title').addEventListener('click', () => {
+      const container = document.getElementById('rainContainer');
+
+      const createDrop = () => {
+        const drop = document.createElement('div');
+        drop.classList.add('drop');
+        drop.style.left = `${Math.random() * 100}vw`;
+        drop.style.animationDuration = `${0.8 + Math.random()}s`;
+        container.appendChild(drop);
+
+        setTimeout(() => drop.remove(), 1500); // remove after animation
+      };
+
+      const rainInterval = setInterval(() => {
+        for (let i = 0; i < 10; i++) createDrop();
+      }, 100);
+
+      setTimeout(() => clearInterval(rainInterval), 5000); // Stop rain after 5s
+    });
+  </script>
+</body>
+</html>
